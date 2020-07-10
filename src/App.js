@@ -10,14 +10,15 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Nav/>
                 <div className='app-wrapper-content'>
-                    <Route exact path='/dialogs' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                    <Route path='/profile' render={() => <Profile posts={props.posts}/>}/>
+                    <Route exact path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                    <Route path='/profile' render={() => <Profile state={props.state.profilePage}/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
