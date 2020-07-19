@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     dialogsPage: {
         dialogs: [
@@ -34,6 +36,7 @@ export let addPost = (postMessage) => {
       likesCount: 0
   };
   state.profilePage.posts.push(newPost);
+  rerenderEntireTree(state);
 };
 
 export let sendMessage = (addMessage) => {
@@ -42,6 +45,7 @@ export let sendMessage = (addMessage) => {
         message: addMessage
     };
     state.dialogsPage.messages.push(newMessage);
+    rerenderEntireTree(state);
 };
 
 export default state;
