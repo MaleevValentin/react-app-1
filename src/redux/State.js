@@ -17,7 +17,8 @@ let state = {
             {id: 4, message: 'Yo'},
             {id: 5, message: 'Yo yo'},
             {id: 6, message: 'Yo yo'}
-        ]
+        ],
+        newMessageText: 'new message'
     },
     profilePage: {
         posts: [
@@ -25,26 +26,41 @@ let state = {
             {id: 2, message: 'Forza Juve!!!!', likesCount: 5},
             {id: 3, message: 'Forza Juve!!!!', likesCount: 5},
             {id: 4, message: 'Forza Juve!!!!', likesCount: 7}
-        ]
+        ],
+        newPostText: 'Forza Juve'
     }
 };
 
-export let addPost = (postMessage) => {
-  let newPost = {
-      id: 5,
-      message: postMessage,
-      likesCount: 0
-  };
-  state.profilePage.posts.push(newPost);
-  rerenderEntireTree(state);
+window.state = state;
+
+export let addPost = () => {
+    let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
 };
 
-export let sendMessage = (addMessage) => {
+export let sendMessage = () => {
     let newMessage = {
         id: 7,
-        message: addMessage
+        message: state.dialogsPage.newMessageText
     };
     state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage;
     rerenderEntireTree(state);
 };
 
