@@ -9,7 +9,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const App = (props) => {
+const App = () => {
 
     return (
         <div className='app-wrapper'>
@@ -17,9 +17,9 @@ const App = (props) => {
             <Nav/>
             <div className='app-wrapper-content'>
                 <Route exact path='/dialogs'
-                       render={() => <DialogsContainer store={props.store}/>}/>
+                       render={() => <DialogsContainer/>}/>
                 <Route path='/profile'
-                       render={() => <Profile store={props.store}/>}/>
+                       render={() => <Profile/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>
