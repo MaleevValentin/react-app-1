@@ -11,6 +11,7 @@ export let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged})
     return <div>
         {pages.map(p => {
             return <span className={currentPage === p ? styles.selectedPage : null}
+                         key={p.id}
                          onClick={(event) => {
                              onPageChanged(p);
                          }}>{p}</span>
