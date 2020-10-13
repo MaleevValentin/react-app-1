@@ -12,8 +12,7 @@ let Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ...p
                                      followingInProgress={props.followingInProgress}
                                      key={u.id}
                                      unfollow={props.unfollow}
-                                     follow={props.follow}
-                    />
+                                     follow={props.follow}/>
                 )
             }
         </div>
