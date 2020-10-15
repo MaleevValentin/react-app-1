@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import './App.css';
 import Nav from "./components/Navbar/Navbar";
 import Music from "./components/Music/Music";
@@ -11,7 +11,7 @@ import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import {BrowserRouter, Route} from "react-router-dom";
+import {HashRouter, Route} from "react-router-dom";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
 
@@ -61,11 +61,11 @@ let AppContainer = compose(
     connect(mapStateToProps, {initializeApp})(App));
 
 const SamuraiJSApp = (props) => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 };
 
 export default SamuraiJSApp;
